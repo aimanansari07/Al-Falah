@@ -84,7 +84,7 @@ export default function Home() {
       <div className="bg-primary shrink-0 px-4 pt-4 pb-3 flex items-center justify-between gap-3">
         <div className="min-w-0">
           <p className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">{GREETING}</p>
-          <p className="text-white font-bold text-[17px] leading-tight truncate">{MASJID.name}</p>
+          <p className="text-white font-bold text-[15px] leading-tight">{MASJID.name}</p>
           <p className="text-accent text-[12px] font-medium mt-0.5">{hijri.day} {hijri.month} {hijri.year} AH</p>
         </div>
         <div className="text-right shrink-0">
