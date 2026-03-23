@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ── */
+:root {
+  --font-scale: 1;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: #C8C2B4;
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: calc(16px * var(--font-scale));
+    color: #1A1A1A;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100dvh;
+    height: 100vh;
+  }
+}
+
+/* ── App Shell: the mobile frame ── */
+.app-shell {
+  width: 100%;
+  max-width: 430px;
+  height: 100dvh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FAFAF8;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0,0,0,0.3);
+  padding-top: env(safe-area-inset-top);
+}
+
+/* ── Scrollable page content ── */
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.page-content::-webkit-scrollbar { display: none; }
+
+/* ── Subtle Islamic geometric background tile ── */
+.geo-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231A5C38' fill-opacity='0.06' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── Tabular numbers for times/clocks ── */
+.digit {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ── Thin gold gradient rule ── */
+.gold-rule {
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #9A7B2F 30%, #9A7B2F 70%, transparent);
+}
+
+/* ── Pulse animations ── */
+@keyframes pulse-green {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,92,56,0.5); }
+  60%      { box-shadow: 0 0 0 7px rgba(26,92,56,0); }
+}
+.pulse-green { animation: pulse-green 2.2s ease-in-out infinite; }
+
+@keyframes pulse-red {
+  0%,100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.5); }
+  60%      { box-shadow: 0 0 0 7px rgba(192,57,43,0); }
+}
+.pulse-red { animation: pulse-red 2.2s ease-in-out infinite; }
+
+/* ── Audio waveform bar ── */
+@keyframes wave-bar {
+  0%,100% { transform: scaleY(0.35); }
+  50%      { transform: scaleY(1); }
+}
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ── Hide scrollbar on tab rows ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
