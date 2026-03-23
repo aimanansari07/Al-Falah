@@ -16,6 +16,8 @@ app.use(cors({
     if (!origin) return cb(null, true);
     // Allow Capacitor Android/iOS origins
     if (origin.startsWith('capacitor://') || origin.startsWith('ionic://')) return cb(null, true);
+    // Allow Capacitor Android WebView (uses https://localhost)
+    if (origin === 'https://localhost' || origin === 'http://localhost') return cb(null, true);
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) return cb(null, true);
     cb(new Error(`CORS: origin ${origin} not allowed`));
   },
