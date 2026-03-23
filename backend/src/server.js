@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Al-Falah API running on http://localhost:${PORT}`);
     console.log(`📱 Mobile access: http://192.168.0.100:${PORT}`);
-    console.log(`🌐 CORS: all origins allowed`);
+    const origins = process.env.CORS_ORIGIN || 'all origins';
+    console.log(`🌐 CORS: ${origins}`);
   });
 })();
