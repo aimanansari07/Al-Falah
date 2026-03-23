@@ -81,15 +81,15 @@ export default function Home() {
       />
 
       {/* ── COMPACT HEADER ── */}
-      <div className="bg-primary shrink-0 px-4 pt-4 pb-3 flex items-center justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">{GREETING}</p>
+      <div className="bg-primary shrink-0 px-4 pt-4 pb-3">
+        <p className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">{GREETING}</p>
+        <div className="flex items-center justify-between gap-3 mt-0.5">
           <p className="text-white font-bold text-[15px] leading-tight">{MASJID.name}</p>
-          <p className="text-accent text-[12px] font-medium mt-0.5">{hijri.day} {hijri.month} {hijri.year} AH</p>
+          <p className="text-white font-bold text-[26px] leading-none digit shrink-0">{time}</p>
         </div>
-        <div className="text-right shrink-0">
-          <p className="text-white font-bold text-[26px] leading-none digit">{time}</p>
-          <p className="text-white/50 text-[12px] mt-0.5">{date}</p>
+        <div className="flex items-center justify-between mt-0.5">
+          <p className="text-accent text-[12px] font-medium">{hijri.day} {hijri.month} {hijri.year} AH</p>
+          <p className="text-white/50 text-[12px] shrink-0">{date}</p>
         </div>
       </div>
 
