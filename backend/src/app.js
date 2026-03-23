@@ -12,8 +12,10 @@ const allowedOrigins = (process.env.CORS_ORIGIN || '')
 
 app.use(cors({
   origin: (origin, cb) => {
-    // Allow requests with no origin (mobile apps, curl, Capacitor)
+    // Allow requests with no origin (curl, server-to-server)
     if (!origin) return cb(null, true);
+    // Allow Capacitor Android/iOS origins
+    if (origin.startsWith('capacitor://') || origin.startsWith('ionic://')) return cb(null, true);
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) return cb(null, true);
     cb(new Error(`CORS: origin ${origin} not allowed`));
   },
