@@ -34,9 +34,13 @@ export function getNextPrayer(mins, prayers = DEFAULT_PRAYERS) {
 
 export function getActivePrayer(mins, prayers = DEFAULT_PRAYERS) {
   const salah = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
-  let active = 'isha';
+  let active = '';
   for (const key of salah) {
-    if (mins >= toMins(prayers[key].azan)) active = key;
+    const azanMins = toMins(prayers[key].azan);
+    const qazaEnd = prayers[key].qazaEnd ? toMins(prayers[key].qazaEnd) : null;
+    if (mins >= azanMins) {
+      active = (!qazaEnd || mins <= qazaEnd) ? key : '';
+    }
   }
   return active;
 }

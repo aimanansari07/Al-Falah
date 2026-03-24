@@ -232,7 +232,7 @@ export default function LiveAzan() {
           {/* TODAY'S SCHEDULE */}
           <div className="bg-white rounded-2xl border border-[#EEEBE4] overflow-hidden">
             <div className="px-4 pt-4 pb-2 flex items-center justify-between">
-              <p className="font-bold text-[15px] text-[#1A1A1A]">Today's Broadcast Schedule</p>
+              <p className="font-bold text-[15px] text-[#1A1A1A]">Today's Azan Schedule</p>
               <span className="text-[11px] text-[#9CA3AF] font-semibold">{SCHEDULE.filter(s => s.done).length}/{SCHEDULE.length} done</span>
             </div>
 
